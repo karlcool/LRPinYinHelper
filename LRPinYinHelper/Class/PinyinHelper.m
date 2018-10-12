@@ -947,12 +947,6 @@ long long PinyinIndex[82][256] =
     return resultStrLast;
 }
 
-#pragma mark 辨别数字
-+ (NSString *)checkNumWithString:(NSString *)str {
-    [SZCommonMethods normalizedPhoneNumber:str];
-    return str;
-}
-
 #pragma mark - ************************************核心函数************************************
 #pragma mark 获取多音字的拼音,which为0到3因为汉字最多4个音
 const char* getPinyin(long index, int which) {
