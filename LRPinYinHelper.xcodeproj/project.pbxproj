@@ -13,6 +13,7 @@
 		2C117C842170336B005D9B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C117C832170336B005D9B88 /* Assets.xcassets */; };
 		2C117C872170336B005D9B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C117C852170336B005D9B88 /* LaunchScreen.storyboard */; };
 		2C117C8A2170336B005D9B88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C117C892170336B005D9B88 /* main.m */; };
+		2C117C9221703375005D9B88 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C117C9121703375005D9B88 /* PinyinHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		2C117C862170336B005D9B88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C117C882170336B005D9B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C117C892170336B005D9B88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C117C9021703375005D9B88 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		2C117C9121703375005D9B88 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 				2C117C7B21703368005D9B88 /* AppDelegate.m */,
 				2C117C7D21703368005D9B88 /* ViewController.h */,
 				2C117C7E21703368005D9B88 /* ViewController.m */,
+				2C117C9321703400005D9B88 /* Class */,
 				2C117C8021703368005D9B88 /* Main.storyboard */,
 				2C117C832170336B005D9B88 /* Assets.xcassets */,
 				2C117C852170336B005D9B88 /* LaunchScreen.storyboard */,
@@ -69,6 +73,15 @@
 				2C117C892170336B005D9B88 /* main.m */,
 			);
 			path = LRPinYinHelper;
+			sourceTree = "<group>";
+		};
+		2C117C9321703400005D9B88 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				2C117C9021703375005D9B88 /* PinyinHelper.h */,
+				2C117C9121703375005D9B88 /* PinyinHelper.m */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C117C9221703375005D9B88 /* PinyinHelper.m in Sources */,
 				2C117C7F21703368005D9B88 /* ViewController.m in Sources */,
 				2C117C8A2170336B005D9B88 /* main.m in Sources */,
 				2C117C7C21703368005D9B88 /* AppDelegate.m in Sources */,
