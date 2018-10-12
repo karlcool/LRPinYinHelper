@@ -13,11 +13,6 @@
 ///@brief 用于检索的拼音串(例:重庆 结果:chongqing zhongqing chong qing zhong qing cq zq)
 + (NSString*)getSearchPinyin:(NSString*)oStr;
 
-///@brief 用于语音检索的拼音串(例:重庆 结果:chongqing zhongqing)
-+ (NSArray <NSString *>*)getAudioSearchPinyin:(NSString*)oStr;
-///@brief 准备语音检索数据
-+ (NSString *)getAudioSearchData:(NSString*)oStr;
-///@brief 获取拼音,which为0到3因为汉字最多4个音,默认传0就行了
 const char* getPinyin(long index, int which);
 
 ///@brief 获取拼音首字母
@@ -28,6 +23,12 @@ long long getPinyinIndex(unichar hanzi);
 
 ///@brief 0为非汉字,1为汉字
 int isChinese(unichar hanzi);
+
+#pragma mark 方便swift调用
+
++ (NSString *)getFirstLetter:(NSString *)oStr;
+
++ (BOOL)isChinese:(NSString *)oStr;
 
 @end
 

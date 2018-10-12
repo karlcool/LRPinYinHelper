@@ -873,80 +873,6 @@ long long PinyinIndex[82][256] =
     return resultStr;
 }
 
-#pragma mark 用于语音检索的拼音串(例:重庆 结果:chongqing zhongqing)
-+ (NSArray <NSString *>*)getAudioSearchPinyin:(NSString*)oStr {
-    NSMutableArray *arrResult = [NSMutableArray arrayWithCapacity:2];
-//    for (int j=0; j<2; j++) {
-        //只取两个音
-        NSMutableString *resultStr = [NSMutableString string];
-        for (int i=0; i<oStr.length; i++) {
-            unichar tempChar = [oStr characterAtIndex:i];
-            char *py = NULL;
-            long long index = 0;
-            BOOL chinese = isChinese(tempChar);
-            
-            if (chinese) {
-                index = getPinyinIndex(tempChar);
-//                py = (char*)getPinyin(index, j);
-                py = (char*)getPinyin(index, 0);
-            } else {
-                //非中文直接不处理
-                py = (char*)&tempChar;
-            }
-            
-            if (py!=NULL) {
-                [resultStr appendFormat:@"%s",py];
-            }
-        }
-        if (resultStr.length > 0) {
-            [arrResult addObject:[resultStr uppercaseString]];
-        }
-//    }
-    return arrResult;
-}
-
-#pragma mark 准备语音检索数据(例:重庆 结果:chongqing zhongqing)
-+ (NSString *)getAudioSearchData:(NSString*)oStr {
-    NSMutableString *resultStrLast = [NSMutableString string];
-    for (int j=0; j<2; j++) {
-        //只取两个音
-        NSMutableString *resultStr = [NSMutableString string];
-        for (int i=0; i<oStr.length; i++) {
-            unichar tempChar = [oStr characterAtIndex:i];
-            char *py = NULL;
-            long long index = 0;
-            BOOL chinese = isChinese(tempChar);
-            
-            if (chinese) {
-                index = getPinyinIndex(tempChar);
-                py = (char*)getPinyin(index, j);
-            } else {
-                //非中文直接不处理
-                py = (char*)&tempChar;
-            }
-            
-            if (py!=NULL) {
-                [resultStr appendFormat:@"%s",py];
-                
-            } else {
-                const char *py2 = getPinyin(index, 0);
-                if (py2!=NULL) {
-                    [resultStr appendFormat:@"%s",py2];
-                }
-            }
-        }
-        if (resultStr.length==0) {
-            continue;
-        }
-        if (resultStrLast.length==0) {
-            [resultStrLast appendString:resultStr];
-        } else if (resultStrLast.length > 0 && ![resultStrLast isEqualToString:resultStr]) {
-            [resultStrLast appendFormat:@"$%@",resultStr];
-        }
-    }
-    return resultStrLast;
-}
-
 #pragma mark - ************************************核心函数************************************
 #pragma mark 获取多音字的拼音,which为0到3因为汉字最多4个音
 const char* getPinyin(long index, int which) {
@@ -990,6 +916,18 @@ int isChinese(unichar hanzi) {
     } else {
         return 0;
     }
+}
+
+#pragma mark 方便swift调用
+
++ (NSString *)getFirstLetter:(NSString *)oStr {
+    unichar firstChar = [oStr characterAtIndex:0];
+    return [NSString stringWithFormat:@"%c",getFirstLetter(firstChar)];
+}
+
++ (BOOL)isChinese:(NSString *)oStr {
+    unichar firstChar = [oStr characterAtIndex:0];
+    return isChinese(firstChar);
 }
 
 @end
