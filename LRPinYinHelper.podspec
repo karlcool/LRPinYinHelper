@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "yanzhi.liu" => "karlcool.l@qq.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/karlcool/LRPinYinHelper.git", :tag => "#{s.version}" }
-  s.source_files        = 'Classes/**/*.{h,m}'
-  s.public_header_files = 'Classes/*.h' 
+  s.source_files        = 'Classe/**/*.{h,m}'
+  s.public_header_files = 'Classe/*.h' 
   
 end
