@@ -920,9 +920,13 @@ int isChinese(unichar hanzi) {
 
 #pragma mark 方便swift调用
 
-+ (NSString *)getFirstLetter:(NSString *)oStr {
++ (NSString *)getFirstLetter:(NSString *)oStr holder:(NSString*)holder {
     unichar firstChar = [oStr characterAtIndex:0];
-    return [NSString stringWithFormat:@"%c",getFirstLetter(firstChar)];
+    const char first = getFirstLetter(firstChar);
+    if (first < 'a' || first > 'z') {
+        return holder;
+    }
+    return [NSString stringWithFormat:@"%c",first];
 }
 
 + (BOOL)isChinese:(NSString *)oStr {
