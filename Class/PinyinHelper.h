@@ -26,7 +26,7 @@ int isChinese(unichar hanzi);
 
 #pragma mark 方便swift调用
 
-+ (NSString *)getFirstLetter:(NSString *)oStr;
++ (NSString *)getFirstLetter:(NSString *)oStr holder:(NSString*)holder;
 
 + (BOOL)isChinese:(NSString *)oStr;
 

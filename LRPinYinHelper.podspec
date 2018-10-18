@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LRPinYinHelper"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "高性能拼音辅助工具"
   s.description  = "高性能拼音辅助工具"
   s.homepage     = "https://github.com/karlcool/LRPinYinHelper"
