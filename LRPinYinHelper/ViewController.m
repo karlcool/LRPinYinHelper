@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PinyinHelper.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    NSString *test = @"sony";
+    
+    NSString *result = [PinyinHelper getFirstLetter:test holder:@"#"];
+    NSLog(@"%@",result);
 }
 
 

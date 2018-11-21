@@ -923,7 +923,7 @@ int isChinese(unichar hanzi) {
 + (NSString *)getFirstLetter:(NSString *)oStr holder:(NSString*)holder {
     unichar firstChar = [oStr characterAtIndex:0];
     const char first = getFirstLetter(firstChar);
-    if (first < 'a' || first > 'z') {
+    if ((first < 'a' || first > 'z') && (first < 'A' || first > 'Z')) {
         return holder;
     }
     return [NSString stringWithFormat:@"%c",first];
