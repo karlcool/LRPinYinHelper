@@ -25,6 +25,7 @@ long long getPinyinIndex(unichar hanzi);
 int isChinese(unichar hanzi);
 
 #pragma mark 方便swift调用
++ (NSString *)getPinyin: (NSString *)oStr;
 
 + (NSString *)getFirstLetter:(NSString *)oStr holder:(NSString*)holder;
 

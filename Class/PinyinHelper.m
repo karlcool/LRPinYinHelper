@@ -919,6 +919,34 @@ int isChinese(unichar hanzi) {
 }
 
 #pragma mark 方便swift调用
++ (NSString *)getPinyin: (NSString *)oStr {
+    NSMutableString *resultStr = [NSMutableString string];
+    
+    for (int i = 0; i<oStr.length; i++) {
+        unichar tempChar = [oStr characterAtIndex:i];
+        char *py = NULL;
+        long long index = 0;
+        BOOL chinese = isChinese(tempChar);
+        
+        if (chinese) {
+            index = getPinyinIndex(tempChar);
+            py = (char*)getPinyin(index, 0);
+        } else {
+            py = (char*)&tempChar;//非中文直接不处理
+        }
+        
+        if (py != NULL) {
+            [resultStr appendFormat:@"%s",py];
+        } else {
+            const char *py2 = getPinyin(index, 0);
+            if (py2!=NULL) {
+                [resultStr appendFormat:@"%s",py2];
+            }
+        }
+    }
+    return resultStr;
+}
+
 
 + (NSString *)getFirstLetter:(NSString *)oStr holder:(NSString*)holder {
     if (oStr.length == 0) {
